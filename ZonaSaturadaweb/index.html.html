@@ -1,0 +1,373 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+	<!-- icocnos de fontawesome para las noticias-->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+    
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Zona Saturada</title>
+
+    <!--
+    color aquí 
+    los metadatos 
+    que puedan generar 
+    con https://megatags.co/
+    -->
+	<!-- COMMON TAGS -->
+<meta charset="utf-8">
+<title>Zonas Saturadas</title>
+<!-- Search Engine -->
+<meta name="description" content="Conccón, Quintero y Puchuncaví">
+<meta name="image" content="https://www.klika.mx/wp-content/uploads/2018/07/Optimized-fabrica.jpg">
+<!-- Schema.org for Google -->
+<meta itemprop="name" content="Zonas Saturadas">
+<meta itemprop="description" content="Conccón, Quintero y Puchuncaví">
+<meta itemprop="image" content="https://www.klika.mx/wp-content/uploads/2018/07/Optimized-fabrica.jpg">
+<!-- Open Graph general (Facebook, Pinterest & Google+) -->
+<meta name="og:title" content="Zonas Saturadas">
+<meta name="og:description" content="Conccón, Quintero y Puchuncaví">
+<meta name="og:image" content="https://www.klika.mx/wp-content/uploads/2018/07/Optimized-fabrica.jpg">
+<meta name="og:site_name" content="Zonas Saturadas">
+<meta name="og:type" content="website">
+
+    <!-- Vamos a buscar el CSS de Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <!--Vamos a buscar el CSS de Font Awesome-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <!-- Vamos por nuestro CSS, basado en https://startbootstrap.com/template-overviews/grayscale/ -->
+    <link href="estilo.css" rel="stylesheet">
+    <!-- Aquí vamos por el estilo y script del mapa-->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js" integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA==" crossorigin=""></script>
+</head>
+
+<body id="page-top">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand js-scroll-trigger" href="#page-top">Inicio</a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="#about">Registro</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="#dataviz">Cifras</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Este encabezado viene de https://startbootstrap.com/snippets/video-header/ -->
+    <header>
+        <div class="overlay"></div>
+        <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+            <!--Favor revisar https://www.w3schools.com/html/html5_video.asp-->
+            <source src="media/Impacto_termoelctrico_Ventanas(youtube.com).mp4" type="video/mp4">
+        </video>
+        <div class="container h-100">
+            <div class="d-flex text-center h-100">
+                <div class="my-auto w-100 text-white">
+                    <h1 class="display-3">Zona Saturada</h1>
+                    <h2>CONCÓN, QUINTERO Y PUCHUNCAVÍ</h2>
+                    <p class="pt-3"><a href="#about"><button type="button" class="btn btn-secondary">COMENZAR</button></i></a></p>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- About Section -->
+    <section id="about" class="about-section text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <h2 class="text-white mb-4">REPORTES SOBRE LAS INTOXICACIONES</h2>
+                    <p class="text-white-50"> Desde que el complejo industrial comenzo a operar en 1930, la calidad de vida de los habitantes de estas comunas comenzó a decaer.
+                </div>
+            </div>
+            <img src="media/industria.png" class="img-fluid" alt="">
+        </div>
+    </section>
+
+	<!-- este carrusel viene de bootstrap examples, es una mezcla de los elementos aquí 
+	dispuestos: 
+	https://getbootstrap.com/docs/4.1/examples/carousel/ -->
+
+<!-- estilo carrusel -->
+  <link href="estiloCarrusel.css" rel="stylesheet">
+
+ <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#+myCarousel" data-slide-to="0"></li>
+          <li data-target="#myCarousel" data-slide-to="1"></li>
+          <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img class="first-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="First slide">
+	<!--primer slider-->
+            <div class="container">
+              <div class="carousel-caption text-left">
+              <div class="row">
+          <div class="col-lg-4">
+            <img src="recursos/child-solid.svg" alt="Generic placeholder image" width="120" height="120">
+			<h2>CONTAMINACIÓN CON AZUFRE</h2>
+            <p>En Escuela La Greda deja 31 niños intoxicados. Las autoridades de la zona informaron que los niños se encuentran con atención médica, tras presentar picazón en los ojos, vómitos y desorientación.</p>
+			<p><a href="https://es.stackoverflow.com/questions/48805/como-crear-un-bot%C3%B3n-html-que-funcione-como-un-link" role="button" class="btn btn-dark">Ver Noticia &raquo;</a></p>
+          </div><!-- /.col-lg-4 -->
+          <div class="col-lg-4">
+            <img src="recursos/skull-crossbones-solid.svg" alt="Generic placeholder image" width="120" height="120">
+            <h2>GASES ENCONTRADOS</h2>
+            <p>Según la autoridad, se trata de derivados de hidrocarburos a diferencia de lo ocurrido el martes cuando la emergencia fue por dióxido de carbono. Aún no se determina la fuente de emisión de estos tóxicos.
+.			</p>
+            <p><a href="https://www.cooperativa.cl/noticias/pais/region-de-valparaiso/seremi-de-salud-identifico-gases-que-causaron-intoxicacion-en-quintero-y/2018-08-23/215304.html" role="button" class="btn btn-dark">Ver Noticia &raquo;</a></p>
+          </div><!-- /.col-lg-4 -->
+          <div class="col-lg-4">
+            <img src="recursos/ambulance-solid.svg" alt="Generic placeholder image" width="120" height="120">
+            <h2>SATURACIÓN URGENCIAS</h2>
+            <p>Dnuevos casos de intoxicación saturan el consultorio de Quintero. El recinto hospitalario tuvo que cerrar para atender exclusivamente a cerca de una veintena de personas. </p>
+            <p><a href="https://www.publimetro.cl/cl/noticias/2018/09/25/no-acaba-nunca-nuevos-casos-intoxicacion-saturan-consultorio-quintero.html" role="button" class="btn btn-dark">Ver Noticia &raquo;</a></p>
+          </div><!-- /.col-lg-4 -->
+        </div><!-- /.row -->
+              </div>
+            </div>
+          </div>
+	<!--segundo slider-->
+          <div class="carousel-item">
+            <img class="second-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Second slide">
+            <div class="container">
+				<div class="carousel-caption text-left">
+			<div class="row">
+          <div class="col-lg-4">
+            <img src="recursos/angry-solid.svg" alt="Generic placeholder image" width="120" height="120">
+            <h2>VECINOS INCREPAN AL SEREMI</h2>
+            <p>En su arribo al lugar, el seremi de Salud de la Región de Valparaíso, Francisco Álvarez, fue increpado en duros términos por vecinos, quienes le exigieron que diera respuestas ante la situación que se vive en la comuna.</p>
+            <p><a href="https://www.latercera.com/nacional/noticia/increpan-seremi-salud-valparaiso-nuevos-intoxicados-quintero/330412/" role="button" class="btn btn-dark">Ver Noticia &raquo;</a></p>
+          </div><!-- /.col-lg-4 -->
+          <div class="col-lg-4">
+		<img src="recursos/cloud-solid.svg" alt="Generic placeholder image" width="120" height="120">
+			  <h2>NUBE TÓXICA</h2>
+            <p>Más de 30 personas en San Felipe, en Valparaíso se han visto afectadas por la presencia de una nube tóxica.</p>
+           <p><a href="https://www.elmostrador.cl/noticias/pais/2018/09/07/nube-toxica-en-san-felipe-mas-de-30-personas-con-sintomas-de-intoxicacion/" role="button" class="btn btn-dark">Ver Noticia &raquo;</a></p>
+          </div><!-- /.col-lg-4 -->
+          <div class="col-lg-4">
+            <img src="recursos/exclamation-triangle-solid.svg" alt="Generic placeholder image" width="120" height="120">
+            <h2>DECRETAN ALERTA AMARILLA</h2>
+            <p>El Intendente de Valparaíso, Jorge Martínez, se refiriere a la nueva alerta amarilla que se decretó en Quintero y Puchuncaví.</p>
+            <p><a href="https://www.24horas.cl/nacional/decretan-nueva-alerta-amarilla-en-quintero-y-puchuncavi-por-contaminacion-ambiental--2809661" role="button" class="btn btn-dark">Ver Noticia &raquo;</a></p>
+          </div><!-- /.col-lg-4 -->
+        </div><!-- /.row -->
+				</div>
+            </div>
+          </div>
+			
+	<!-- tercer slider -->
+			<div class="carousel-item">
+            <img class="third-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Third slide">
+            <div class="container">
+              <div class="carousel-caption text-left">
+                <div class="row">
+          <div class="col-lg-4">
+            <img src="recursos/tint-slash-solid.svg" alt="Generic placeholder image" width="120" height="120">
+            <h2>AGUA NO POTABLE</h2>
+            <p>48 horas de un deplorable servicio de agua potable han tenido los vecinos de las comunas de Quintero y Puchuncaví en la Región de Valparaíso, esto debido a la turbiedad de las aguas en el servicio de agua potable que suministra la empresa Esval.</p>
+            <p><a href="http://www.puranoticia.cl/noticias/regiones/caso-de-aguas-turbias-en-quintero-y-puchuncavi-deja-al-descubierto/2018-12-06/201203.html" role="button" class="btn btn-dark">Ver Noticia &raquo;</a></p>
+          </div><!-- /.col-lg-4 -->
+          <div class="col-lg-4">
+			 <img src="recursos/water-solid.svg" alt="Generic placeholder image" width="120" height="120">
+            <h2>NUEVO DERRAME DE PETROLEO</h2>
+            <p>Este domingo, vecinos del fundo Santa Julia en Quintero denunciaron un derrame de petróleo en un canal de agua dulce y en sectores de vegetación aledaña.</p>
+            <p><a href="http://www.login.cl/noticias/7891-nuevo-derrame-de-petroleo-en-quintero" role="button" class="btn btn-dark">Ver Noticia &raquo;</a></p>
+          </div><!-- /.col-lg-4 -->
+          <div class="col-lg-4">
+            <img src="recursos/user-tie-solid.svg" alt="Generic placeholder image" width="120" height="120">
+            <h2>POSIBLES RESPONSABLES</h2>
+            <p>Avalado por el Gobierno, el intendente aseguró que la autoridad cuenta con “evidencias concretas” contra la compañía ENAP.</p>
+            <p><a href="https://www.elmostrador.cl/noticias/pais/2018/08/24/drama-ambiental-en-quintero-todas-las-miradas-apuntan-a-enap-y-empresa-se-defiende/" role="button" class="btn btn-dark">Ver Noticia &raquo;</a></p>
+			
+          </div><!-- /.col-lg-4 -->
+        </div><!-- /.row -->
+              </div>
+            </div>
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+  
+
+<!-- dataviz Section -->
+    <section id="dataviz" class="dataviz-section bg-light">
+        <div class="container">
+
+            <!-- MAPA -->
+            <div class="row align-items-center no-gutters mb-4 mb-lg-5">
+                <div class="col-xl-8 col-lg-7">
+                    <div id="leaflet"></div>
+                </div>
+                <div class="col-xl-4 col-lg-5">
+                    <div class="featured-text text-center text-lg-left">
+                        <h4>Región de Valparaíso, Chile</h4>
+                        <p class="text-black-50 mb-0">Durante la primera mitad del siglo pasado, la Bahía de Quintero era una zona dedicada principalmente a la pesca artesanal y al desarrollo de la agricultura en varias de sus localidades. Sin embargo, el origen del complejo industrial de Ventanas, puede trazarse a partir de la crisis de la década de 1930, tras la cual, se implementa en el país una política de Industrialización por Sustitución de Importaciones.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PRIMER GRÁFICO -->
+            <div class="row justify-content-center no-gutters mb-5 mb-lg-0">
+                <div class="col-lg-6">
+                    <svg id="chart-1"></svg>
+                </div>
+                <div class="col-lg-6">
+                    <div class="bg-black text-center h-100 project">
+                        <div class="d-flex h-100">
+                            <div class="project-text w-100 my-auto text-center text-lg-left">
+                                <h4 class="text-white">CAUSAS DE MUERTE</h4>
+                                <p class="mb-0 text-white-50">En el período 2010 - 2014, la causa de muerte con la tasa de crecimiento anual más alta en Valparaíso fueron Enfermedades del sistema respiratorio con un 2,4 %, seguido de Tumores (neoplasias) con 1,6 %. Revisemos las muertes de 2018:
+								</p>
+                                <hr class="d-none d-lg-block mb-0 ml-0">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SEGUNDO GRÁFICO -->
+            <div class="row justify-content-center no-gutters">
+                <div class="col-lg-6">
+                    <svg id="chart-2"></svg>
+                </div>
+                <div class="col-lg-6 order-lg-first">
+                    <div class="bg-black text-center h-100 project">
+                        <div class="d-flex h-100">
+                            <div class="project-text w-100 my-auto text-center text-lg-right">
+                                <h4 class="text-white">En 2014, se registraron 2.164.201 atenciones en servicios de urgencias de Valparaíso.</h4>
+                                <p class="mb-0 text-white-50">Además, el 32,4 % de las atenciones médicas que se realizaron fue con especialista, donde el número de atenciones de esto último incrementó a una tasa anual de 0,2 % en el periodo 2010-2014</p>
+                                <hr class="d-none d-lg-block mb-0 mr-0">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black small text-center text-white-50">
+        <div class="container">
+            <p><span class="titular"></span> fue desarrollado por Andrea Gatica para Multimedia II</p>
+            <p>Segundo semestre, 2018 · Diseño Gráfico</p>
+            <p>Universidad de Chile</p>
+            <p><a href="#page-top"><i class="fas fa-arrow-alt-circle-up"></i></a></p>
+        </div>
+    </footer>
+
+    <!-- Vamos a buscar algo de JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+    <!--ahora aprovechamos que Bootstrap necesita jQuery, para manipular el DOM-->
+    <script>
+        (function($) {
+            "use strict"; // Start of use strict
+
+            $(".titular").text("Título Aquí");
+        })(jQuery); // End of use strict
+    </script>
+
+    <!--el tema de bootstrap que usamos necesita este script para funcionar-->
+    <script src="js/tema.js"></script>
+
+    <!--acá comienzan las visualizaciones-->
+
+    <!--primero el mapa-->
+
+     <script>
+        var mymap = L.map('leaflet').setView([-32.7416, -71.486], 12,5);
+        var georeferencias = [
+        {
+            lugar: "ENAP",
+            coordenadas: [-32.7717688, -71.4913439]
+        }, {
+            lugar: "AES GENER",
+            coordenadas: [-32.7517133, -71.483362]
+        }, {
+            lugar: "CODELCO",
+            coordenadas: [-32.7650043, -71.4825493]
+        }, 
+        ];
+        L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+            maxZoom: 18,
+            id: 'mapbox.outdoors'
+        }).addTo(mymap);
+		
+		 var popup = L.popup() .setLatLng([-32.7517133, -71.483362]) .setContent("ZONA INDUSTRIAL") .openOn(mymap);
+		 
+        for (var x = 0; x < georeferencias.length; x++) {
+            lat = georeferencias[x].coordenadas[0];
+            lon = georeferencias[x].coordenadas[1];
+            circle = L.circle([lat, lon], {
+                fillColor: '#FF0000',
+                fillOpacity: 0.5,
+                weight: 0,
+                radius: 1000
+            }).addTo(mymap);
+            console.log(lat + "," + lon);
+        }
+    </script>
+
+    <!--luego voy a buscar una biblioteca que Data Driven Documents (DDD = d3)-->
+
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+	
+
+    <!--esto es para un gráfico -->
+
+   <script>
+        var muertes = [
+        {diagnostico: "Enfermedades Sistema Circulatorio", personas: 34 },
+        {diagnostico: "Enfermedades Sistema Respiratorio", personas: 12 },
+        {diagnostico: "Enfermedades Sistema Digestivo", personas: 8 },
+        {diagnostico:"Tumores", personas: 30 },
+        {diagnostico:"Lesiones Autoinflingidas", personas: 2 },
+        {diagnostico:"Infecciones por VIH", personas: 1 },
+        {diagnostico:"Enfermedades Endocrinas", personas: 7 },
+        {diagnostico:"Accidentes de Tránsito", personas: 4 },
+        ];
+        var coso = d3.select("#chart-1").attr("width", "100%").attr("height", "420").style("background", "#777");
+        coso.selectAll("rect").data(muertes).enter().append("rect").attr("x",40).attr("y", function(d, i) { return (i + 1) * 40; }).attr("width", function(d) { return d.personas*10 }).attr("height",30).attr("fill","RGBA(220, 255, 255, 1.00)")
+         coso.selectAll("text").data(muertes).enter().append("text").text(function(d) {return (d.diagnostico + " (" + d.personas + " Personas)")}).attr("text-anchor", "start").attr("x", function(d, i) { return (d.personas*5)+50 }).attr("y", function(d, i) { return ((i + 1) * 40)+20 }).attr("font-family", "sans-serif").attr("font-size", "12px").attr("fill", "black"); 
+    </script>
+
+    <!--esto es para otro gráfico -->
+	<script src="https://d3js.org/d3.v5.min.js"></script>
+	 <script>
+      	var atencion = [
+        {tipo: "Atención de Urgencia", numero: 50 },
+        {tipo: "Atención de Salud Primaria", numero: 34 },
+        {tipo: "Atención Especialistas", numero:16},
+        ];
+        var aqui = d3.select("#chart-2").attr("width", "100%").attr("height", "400").style("background", "#777");
+        aqui.selectAll("rect").data(atencion).enter().append("rect").attr("x",40).attr("y", function(d, i) { return (i + 1) * 40; }).attr("width", function(d) { return d.numero*10 }).attr("height",30).attr("fill","RGBA(220, 255, 255, 1.00)")
+         aqui.selectAll("text").data(atencion).enter().append("text").text(function(d) {return (d.tipo + " (" + d.numero + " %)")}).attr("text-anchor", "start").attr("x", function(d, i) { return (d.numero*5)+50 }).attr("y", function(d, i) { return ((i + 1) * 40)+20 }).attr("font-family", "sans-serif").attr("font-size", "12px").attr("fill", "black"); 
+    </script>
+		
+
+</body>
+
+</html>
